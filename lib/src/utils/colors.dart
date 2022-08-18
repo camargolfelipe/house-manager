@@ -11,6 +11,7 @@ var yellow = const Color(0xFFFFEB3B);
 var green = const Color(0xFF81C784);
 var brown = const Color(0xFF795548);
 var grey = const Color(0xFF9E9E9E);
+var darkGrey = const Color(0xFF3A3A3C);
 var white = const Color(0xFFFFFFFF);
 var ice = const Color(0xFFF5F5F5);
 var black = const Color(0xFF000000);

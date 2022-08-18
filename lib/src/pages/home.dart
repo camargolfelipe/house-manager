@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Divider(color: secondColor.withOpacity(0.5)),
           ),
-          const MenuHome(),
+          MenuHome(),
           HomeTitle(strings.your_house),
           const YouHouseComponent(),
           HomeTitle(strings.timeline),

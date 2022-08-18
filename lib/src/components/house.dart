@@ -24,7 +24,6 @@ class HouseExternalDetailItems extends StatelessWidget {
     ];
     return Padding(
         padding: const EdgeInsets.all(8.0),
-        // implement GridView.builder
         child: GridView.builder(
             shrinkWrap: true,
             padding: EdgeInsets.zero,

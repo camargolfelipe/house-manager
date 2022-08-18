@@ -1,69 +1,86 @@
 import 'package:flutter/material.dart';
+import 'package:housemanager/src/pages/evolution.dart';
+import 'package:housemanager/src/pages/invoice.dart';
 import 'package:housemanager/src/utils/colors.dart';
 import 'package:housemanager/src/utils/routes.dart';
 
+import '../pages/expenses.dart';
 import '../utils/strings.dart';
 
 class MenuHome extends StatelessWidget {
-  const MenuHome({Key? key}) : super(key: key);
+  bool isDebit = true;
+  MenuHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Strings strings = Strings();
     return Row(
       children: [
-        Expanded(child: MenuHomeItem(strings.debit, Icons.attach_money)),
-        Expanded(child: MenuHomeItem(strings.evolution, Icons.show_chart)),
-        Expanded(child: MenuHomeItem(strings.expenses, Icons.local_atm)),
+        Expanded(
+            child:
+                MenuHomeItem(strings.debit, Icons.attach_money, InvoicePage())),
+        Expanded(
+            child: MenuHomeItem(
+                strings.evolution, Icons.show_chart, const EvolutionPage())),
+        Expanded(
+            child: MenuHomeItem(
+                strings.expenses, Icons.local_atm, const ExpensesPage())),
       ],
     );
   }
 }
 
 class MenuHomeItem extends StatelessWidget {
+  Widget route;
   String label;
   IconData icon;
-  MenuHomeItem(this.label, this.icon, {Key? key}) : super(key: key);
+  MenuHomeItem(this.label, this.icon, this.route, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      margin: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: ice,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: black.withOpacity(0.15),
-            blurRadius: 16,
-            offset: Offset(0, 8),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(2),
-            margin: const EdgeInsets.only(right: 8),
-            decoration: BoxDecoration(
-              color: mainColor,
-              borderRadius: BorderRadius.circular(5),
+    return GestureDetector(
+      onTap: () {
+        Routes routes = Routes();
+        routes.constructed(context, route);
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        margin: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: ice,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: black.withOpacity(0.15),
+              blurRadius: 16,
+              offset: Offset(0, 8),
             ),
-            child: Center(
-              child: Icon(
-                icon,
-                color: ice,
-                size: 24,
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(2),
+              margin: const EdgeInsets.only(right: 8),
+              decoration: BoxDecoration(
+                color: mainColor,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: Center(
+                child: Icon(
+                  icon,
+                  color: ice,
+                  size: 24,
+                ),
               ),
             ),
-          ),
-          Text(
-            label,
-            style: TextStyle(
-                color: mainColor, fontSize: 12, fontWeight: FontWeight.w300),
-          )
-        ],
+            Text(
+              label,
+              style: TextStyle(
+                  color: mainColor, fontSize: 12, fontWeight: FontWeight.w300),
+            )
+          ],
+        ),
       ),
     );
   }

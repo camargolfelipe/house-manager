@@ -4,6 +4,8 @@ import 'package:housemanager/src/utils/strings.dart';
 import '../components/house.dart';
 import '../utils/colors.dart';
 
+// https://www.behance.net/gallery/123301351/Real-Estate-App?tracking_source=search_projects%7Cestate%20agency%20app
+
 class HousePage extends StatelessWidget {
   const HousePage({Key? key}) : super(key: key);
 

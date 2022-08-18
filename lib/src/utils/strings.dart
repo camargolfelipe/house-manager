@@ -19,4 +19,8 @@ class Strings {
   String expenses = "Gastos";
   String your_house = "Sua Casa";
   String address = "Maria Clara Residencial Resort | Caçapava";
+
+  //INVOICES
+  String pendent_invoice = "Você possui fatura(s) pendente(s)";
+  String non_pendent_invoice = "Você não possui fatura pendente";
 }
